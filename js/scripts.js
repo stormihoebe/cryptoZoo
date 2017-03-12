@@ -106,9 +106,15 @@ $(function(){
   $(".danger-chance").click(function(){
     $("#messageBoard").show();
     $("#showMessage").hide();
-    $("#message").text("Oh Dear, you touched the light switch and the small room fills with light. There's a chance you might get caught. I hope you are a lucky " + cryptidType + ". Roll the dice to determine your future. With a 3 or better, you are safe. Roll a 1 or 2 and you'll have to start over.");
     $("#dice").show();
   });
+  $(".light").click(function(){
+    $("#message").text("Oh Dear, you touched the light switch and the small room fills with light. There's a chance you might get caught. I hope you are a lucky " + cryptidType + ". Roll the dice to determine your future. With a 3 or better, you are safe. Roll a 1 or 2 and you'll have to start over.");
+  });
+  $(".alarm").click(function(){
+    $("#message").text("Oh Dear, you touched the alarm system and it has started to sound. There's a chance you might get caught. I hope you are a lucky " + cryptidType + ". Roll the dice to determine your future. With a 3 or better, you are safe. Roll a 1 or 2 and you'll have to start over.");
+  });
+
   $("#dice").click(function(){
     diceRoll();
     $("#message").text("You rolled a " + dice + ".");

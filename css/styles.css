@@ -19,6 +19,9 @@ body {
 }
 .arrow {
   width: 100px;
+  margin: 30px;
+  display: inline-block;
+
 }
 #cageRoom {
   background-image: url(../img/cageRoom.jpg);

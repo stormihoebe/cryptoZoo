@@ -59,6 +59,7 @@ $(function(){
   }); //end userForm Submit
 
   $("#getStarted").click(function(){
+    $(".jumbotron").hide();
     $("#message").text("You have found the cage to your exhibit open. This is a very special moment. Do not waste any time. Collect items as you make your way through the Zoo to the entrance.");
 
     $("#cageRoom").show();
@@ -86,17 +87,41 @@ $(function(){
     $("#message").text("Oh good, a key. Can't have too many of those.");
 
   });
+  $("#lockKey").click(function(){
+    $("#lockKey").hide();
+  });
+  $("#keyRing").click(function(){
+    $("#keyRing").hide();
+  });
 
   $(".evidence").click(function(){
     evidence.push("evidence");
     $("#amountOfEvidence").text(evidence.length);
     $("#message").text("You have found some evidence. Well done! This evidence will be helpful to free not only yourself, but also the other sorry cryptids trapped in this horrible place.");
   });
+  $("#footEvidence").click(function(){
+    $("#footEvidence").hide();
+  });
+  $("#hairEvidence").click(function(){
+    $("#hairEvidence").hide();
+  });
+  $("#logEvidence").click(function(){
+    $("#logEvidence").hide();
+  });
+  $("#brochureEvidence").click(function(){
+    $("#brochureEvidence").hide();
+  });
 
   $(".ally").click(function(){
     allies.push("ally");
     $("#amountOfAllies").text(allies.length);
     $("#message").text("You have found an ally. Thank goodness. Good friends can be hard to come by.");
+  });
+  $("#wildAlly").click(function(){
+    $("#wildAlly").hide();
+  });
+  $("#cagedAlly").click(function(){
+    $("#cagedAlly").hide();
   });
 
   $(".showForest").click(function(){

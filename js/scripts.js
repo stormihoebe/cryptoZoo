@@ -184,6 +184,17 @@ $(function(){
     checkReady();
     if( readyToLeave === "yes") {
         alert("congratulations, you were able to collect items and leave without being caught!");
+        $(".rooms").hide();
+        $("#finalReport").show();
+        keys.forEach(function(key) {
+          $("#keysCollected").append("<li>" + key + "</li>");
+        });
+        evidence.forEach(function(item) {
+          $("#evidenceCollected").append("<li>" + item + "</li>");
+        });
+        allies.forEach(function(ally) {
+          $("#alliesCollected").append("<li>" + ally + "</li>");
+        });
     } else {
       alert("Not so fast, " + cryptidType + ", you haven't collected enough items. Return to the cage area and start collecting.");
       $(".rooms").hide();

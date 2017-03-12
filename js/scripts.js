@@ -17,6 +17,8 @@ var allies = [];
 var newPlayer;
 var started;
 var readyToLeave;
+var dice;
+var luck;
 
 //checking if you are ready to leave
 checkReady = function(){
@@ -27,6 +29,20 @@ checkReady = function(){
   };
   return readyToLeave;
 };
+
+var diceRoll = function(){
+  dice = Math.floor(Math.random() * 6) + 1;
+  return dice;
+};
+var goodLuck = function(dice) {
+  if (dice > 2) {
+    luck = "good";
+  } else {
+    luck = "bad";
+  };
+  return luck;
+};
+
 
 $(function(){
   $("#userForm").submit(function(event){
@@ -86,6 +102,30 @@ $(function(){
     $("#closetRoom").show();
   });
 
+
+  $(".danger-chance").click(function(){
+    $("#messageBoard").show();
+    $("#showMessage").hide();
+    $("#message").text("Oh Dear, you touched the light switch and the small room fills with light. There's a chance you might get caught. I hope you are a lucky " + cryptidType + ". Roll the dice to determine your future. With a 3 or better, you are safe. Roll a 1 or 2 and you'll have to start over.");
+    $("#dice").show();
+  });
+  $("#dice").click(function(){
+    diceRoll();
+    $("#message").text("You rolled a " + dice + ".");
+    goodLuck(dice);
+    if (luck === "good") {
+      $("#message").append(" That was a very close call. Keep collecting items and find your way to get out of this place.");
+    } else {
+      $("#message").append(" Yikes! Looks like you will have to start over");
+    };
+    if (luck === "bad"){
+      alert("Bummer. You rolled a " + dice + ". The page will refresh so you can start from the beginning.");
+      location.reload();
+    };
+
+  });
+
+
   $(".showCage").click(function(){
     $(".rooms").hide();
     $("#cageRoom").show();
@@ -96,12 +136,9 @@ $(function(){
     $("#entranceRoom").show();
   });
 
+
   $(".exit").click(function(){
     checkReady();
-    console.log(readyToLeave);
-    console.log("KEYS " + keys.length);
-    console.log("EV " + evidence.length);
-    console.log("ALIES " + allies.length);
     if( readyToLeave === "yes") {
         alert("congratulations, you were able to collect items and leave without being caught!");
     } else {

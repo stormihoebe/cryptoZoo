@@ -11,15 +11,19 @@ Player.prototype.Report = function() {
 //Global variables
 var name;
 var cryptidType
-
+var keys = [];
+var evidence = [];
+var allies = [];
+var newPlayer
 
 $(function(){
   $("#userForm").submit(function(event){
     event.preventDefault();
     name = $("input#name").val();
     cryptidType = $("#cryptidType").val();
-    console.log(name);
-    console.log(cryptidType);
+    newPlayer = new Player(name, cryptidType, keys, evidence, allies);
+    console.log(newPlayer);
+    $("#start").hide();
 
   }) //end userForm Submit
 

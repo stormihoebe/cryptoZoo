@@ -59,6 +59,8 @@ $(function(){
   }); //end userForm Submit
 
   $("#getStarted").click(function(){
+    $("#message").text("You have found the cage to your exhibit open. This is a very special moment. Do not waste any time. Collect items as you make your way through the Zoo to the entrance.");
+
     $("#cageRoom").show();
     $("#getStarted").hide();
     started = "yes";
@@ -81,25 +83,33 @@ $(function(){
   $(".key").click(function(){
     keys.push("key");
     $("#amountOfKeys").text(keys.length);
+    $("#message").text("Oh good, a key. Can't have too many of those.");
+
   });
 
   $(".evidence").click(function(){
     evidence.push("evidence");
     $("#amountOfEvidence").text(evidence.length);
+    $("#message").text("You have found some evidence. Well done! This evidence will be helpful to free not only yourself, but also the other sorry cryptids trapped in this horrible place.");
   });
+
   $(".ally").click(function(){
     allies.push("ally");
     $("#amountOfAllies").text(allies.length);
+    $("#message").text("You have found an ally. Thank goodness. Good friends can be hard to come by.");
   });
 
   $(".showForest").click(function(){
     $(".rooms").hide();
     $("#forestRoom").show();
+    $("#message").text("You seem to have found the forest. It is dark but you are able to make out the shapes of some possible items to collect.");
   });
 
   $(".showCloset").click(function(){
     $(".rooms").hide();
     $("#closetRoom").show();
+    $("#message").text("Ah, a dark closet. Looks like there might be some items to collect. Beware of possible danger.");
+
   });
 
 
@@ -128,16 +138,18 @@ $(function(){
       alert("Bummer. You rolled a " + dice + ". The page will refresh so you can start from the beginning.");
       location.reload();
     };
-
+    $("#dice").hide();
   });
 
 
   $(".showCage").click(function(){
+    $("#message").text("The open cage. Looks familiar. Collect items and find your way to the entrance.");
     $(".rooms").hide();
     $("#cageRoom").show();
   });
 
   $(".showEntrance").click(function(){
+    $("#message").text("Here you are at the entrance. I hope you are ready. If not, looks like there are still some items to be collected. You can always turn back and visit old rooms again. Do your best not to set off the alarm. And only exit when you have all of your items.");
     $(".rooms").hide();
     $("#entranceRoom").show();
   });

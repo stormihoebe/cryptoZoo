@@ -6,7 +6,8 @@ this.keys = keys;
 this.evidence = evidence;
 this.allies = allies;
 };
-Player.prototype.Report = function() {
+Player.prototype.upperName = function() {
+  return (this.name +" the "+ this.cryptid).toUpperCase();
 };
 //Global variables
 var name;
@@ -183,7 +184,7 @@ $(function(){
   $(".exit").click(function(){
     checkReady();
     if( readyToLeave === "yes") {
-        alert("congratulations, you were able to collect items and leave without being caught!");
+        alert(newPlayer.upperName() + " Congratulations, you were able to collect items and leave without being caught!");
         $(".rooms").hide();
         $("#finalReport").show();
         keys.forEach(function(key) {
@@ -201,5 +202,7 @@ $(function(){
       $("#cageRoom").show();
     };
   });
-
+  $("#startOver").click(function() {
+    location.reload();
+  });
 }); //end jquery
